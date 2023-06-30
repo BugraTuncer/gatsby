@@ -17,9 +17,7 @@ interface IndexPageProps {
 }
 const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
   const [backgroundColor, setBackgroundColor] = React.useState("#FFFFF");
-  console.log("background", backgroundColor);
   const switchBackgroundColor = (name: string) => {
-    console.log("name", name);
     switch (name) {
       case "red":
         setBackgroundColor("#D62828");
@@ -36,7 +34,6 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
       case "yellow":
         setBackgroundColor("#FCBF49");
         break;
-
       default:
         break;
     }
@@ -80,11 +77,7 @@ export const gatsbyQuery = graphql`
         node {
           name
           childImageSharp {
-            gatsbyImageData(
-              width: 200
-              placeholder: BLURRED
-              formats: [AUTO, WEBP, AVIF]
-            )
+            gatsbyImageData(width: 200, placeholder: BLURRED)
           }
         }
       }
